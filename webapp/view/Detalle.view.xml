@@ -1,0 +1,59 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.terraregia.ZDEMO_EVER2.controller.Detalle">
+	<Page title="Title" showNavButton="true" navButtonPress="onNavBack">
+		<content>
+			<ObjectHeader title="{Descripcion}" backgroundDesign="Solid">
+				<attributes>
+					<ObjectAttribute title="Pais" text="{NombrePais}"/>
+				</attributes>
+			</ObjectHeader>
+			<Table items="{Posiciones}">
+				<items>
+					<ColumnListItem type="Active">
+						<cells>
+							<Text text="{IdPos}"/>
+							<Text text="{Material}"/>
+							<ObjectNumber number="{Cantidad}" unit="{Unidad}"/>
+							<Text text="{Fecha}"/>
+							<CheckBox selected="{Activo}" enabled="false"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+				<columns>
+					<Column>
+						<header>
+							<Label text="Id"/>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Label text="{i18n>material}"/>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Label text="{i18n>cantidad}"/>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Label text="Fecha"/>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Label text="Activo"/>
+						</header>
+					</Column>
+				</columns>
+			</Table>
+		</content>
+		<footer>
+			<Toolbar width="100%" id="toolbar1">
+				<content>
+					<ToolbarSpacer id="spacer0"/>
+					<Button xmlns="sap.m" text="Button" press="onEdit"/>
+				</content>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

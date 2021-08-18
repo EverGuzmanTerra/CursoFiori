@@ -1,0 +1,139 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "com.terraregia.ZDEMO_EVER2",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"Y_DEMO_EVER_SRV": {
+				"uri": "/sap/opu/odata/sap/Y_DEMO_EVER_SRV/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "com.terraregia.ZDEMO_EVER2.view.App",
+			"type": "XML",
+			"async": true
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.terraregia.ZDEMO_EVER2.i18n.i18n"
+				}
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "Y_DEMO_EVER_SRV",
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "com.terraregia.ZDEMO_EVER2.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"name": "RouteLista",
+					"pattern": "",
+					"target": [
+						"TargetLista"
+					]
+				},
+				{
+					"name": "RouteDetalle",
+					"pattern": "Detalle/{id}",
+					"target": [
+						"Detalle"
+					]
+				}
+			],
+			"targets": {
+				"TargetLista": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "Lista",
+					"viewName": "Lista"
+				},
+				"Detalle": {
+					"viewType": "XML",
+					"viewName": "Detalle"
+				},
+				"App": {
+					"viewType": "XML",
+					"viewName": "App"
+				},
+				"DialogCrear": {
+					"viewType": "XML",
+					"viewName": "DialogCrear"
+				}
+			}
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zdemo_ever/webapp",
+		"_version": "1.1.0"
+	}
+}

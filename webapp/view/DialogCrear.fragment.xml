@@ -1,0 +1,38 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:form="sap.ui.layout.form">
+	<Dialog title="{viewModel>/Title}">
+		<content>
+			<form:Form editable="true" id="form0">
+				<form:formContainers>
+					<form:FormContainer title="Nuevo elemento">
+						<form:formElements>
+							<form:FormElement label="Id" visible="{= ${viewModel>/Mode} === 'M' }">
+								<form:fields>
+									<Input value="{viewModel>/Id}" enabled="false"/>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement label="Descripción">
+								<form:fields>
+									<Input maxLength="100" value="{viewModel>/Descripcion}"/>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement label="País">
+								<form:fields>
+									<Input maxLength="3" value="{viewModel>/Pais}"/>
+								</form:fields>
+							</form:FormElement>
+						</form:formElements>
+					</form:FormContainer>
+				</form:formContainers>
+				<form:layout>
+					<form:ResponsiveGridLayout id="layout0"/>
+				</form:layout>
+			</form:Form>
+		</content>
+		<beginButton>
+			<Button text="{viewModel>/TextoBoton}" press="onCrearCabecera"></Button>
+		</beginButton>
+		<endButton>
+			<Button text="Cancelar" press="onCancelDialog"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

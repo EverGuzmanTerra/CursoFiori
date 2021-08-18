@@ -1,0 +1,36 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="Y_DEMO_EVER_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="Cabecera" sap:content-version="1">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="numc5" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descripcion" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Character 100"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Pais" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Country" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="NombrePais" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="Posiciones" Relationship="Y_DEMO_EVER_SRV.AsCabeceraToPosicion" FromRole="FromRole_AsCabeceraToPosicion"
+					ToRole="ToRole_AsCabeceraToPosicion"/></EntityType>
+			<EntityType Name="Posicion" sap:content-version="1">
+				<Key><PropertyRef Name="Id"/><PropertyRef Name="IdPos"/></Key><Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="numc5" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="IdPos" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="numc5" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Cantidad" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unicode="false" sap:unit="Unidad"
+					sap:label="GR slips quantity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Unidad" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Base Unit" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/><Property Name="Fecha" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Start Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Activo" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Orden" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="INT2" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<Association Name="AsCabeceraToPosicion" sap:content-version="1"><End Type="Y_DEMO_EVER_SRV.Cabecera" Multiplicity="1" Role="FromRole_AsCabeceraToPosicion"/><End Type="Y_DEMO_EVER_SRV.Posicion" Multiplicity="*" Role="ToRole_AsCabeceraToPosicion"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AsCabeceraToPosicion"><PropertyRef Name="Id"/></Principal>
+					<Dependent Role="ToRole_AsCabeceraToPosicion"><PropertyRef Name="Id"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="Y_DEMO_EVER_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="CabeceraSet" EntityType="Y_DEMO_EVER_SRV.Cabecera" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="PosicionSet" EntityType="Y_DEMO_EVER_SRV.Posicion" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/>
+				<AssociationSet Name="AsCabeceraToPosicionSet" Association="Y_DEMO_EVER_SRV.AsCabeceraToPosicion" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="CabeceraSet" Role="FromRole_AsCabeceraToPosicion"/><End EntitySet="PosicionSet" Role="ToRole_AsCabeceraToPosicion"/></AssociationSet>
+			</EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="http://terradev:8384/sap/opu/odata/sap/Y_DEMO_EVER_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version"
+				href="http://terradev:8384/sap/opu/odata/sap/Y_DEMO_EVER_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
