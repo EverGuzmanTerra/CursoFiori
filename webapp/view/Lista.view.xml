@@ -1,5 +1,5 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.terraregia.ZDEMO_EVER2.controller.Lista" displayBlock="true">
-	<Page id="page" title="{i18n>title}">
+	<Page id="page" title="{i18n>title} 2">
 		<content>
 			<List noDataText="Drop list items here" items="{/CabeceraSet}" itemPress="onCabeceraPress" mode="Delete" delete="onDeleteCabecera">
 				<items>
